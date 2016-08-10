@@ -3197,7 +3197,7 @@
 /* ICONS */
 /* Icon Back */
 .hvr-icon-back {
-    display: inline-block;
+   / display: inline-block;
     vertical-align: middle;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -3205,7 +3205,7 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
+   /* position: relative;*/
     left: -900px;
     top: -44px;
     padding-left: 2.2em;

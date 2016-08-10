@@ -32,6 +32,14 @@ define(['text!../templates/resultsPageElements.html', './resultsOddRowView' , '.
 
         presentMovieDetails: function(event){
             this.onChosenMovieCallback(event.currentTarget.id);
+        },
+
+        cleanupResultsView : function () {
+            $('.table-of-results').hide();
+        },
+        
+        showResultsView : function () {
+            $('.table-of-results').show();
         }
     });
 });

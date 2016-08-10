@@ -3,7 +3,8 @@ define(['text!../templates/movieDetailsPageElements.html'], function (template )
         el:'.table-of-movie-details',
         tagName: 'table',
 
-        initialize : function () {
+        initialize : function (obj) {
+            this.onBackCallback =  obj.onBackCallback;
             this.render();
         },
 
@@ -18,7 +19,7 @@ define(['text!../templates/movieDetailsPageElements.html'], function (template )
             else {
                 $('.movie-poster').html('<img src="' + movieModel.get('Poster') + '" />');
             }
-            debugger;
+
            // me.$el.find('.second.col.metacritics-rating').append(movieModel.get('Title'));
             $('.movie-title-headline').text(movieModel.get('Title'));
             $('.metacritics-rating').text(movieModel.get('Metascore'));
@@ -32,7 +33,25 @@ define(['text!../templates/movieDetailsPageElements.html'], function (template )
             $('.plot').text(movieModel.get('Plot'));
             $('.released').text(movieModel.get('Released'));
             $('.runtime').text(movieModel.get('Runtime'));
+
+            $('.button-place').html('<button class="go-back-button hvr-icon-back" >Back</button>');
             
+        },
+
+        events: {
+            "click .go-back-button":          "back",
+        },
+
+        back: function(){
+            this.onBackCallback();
+        },
+
+        cleanupDetailsView : function () {
+            $('.table-of-movie-details').hide();
+        },
+
+        showDetailsView : function () {
+            $('.table-of-movie-details').show();
         }
     });
 });
