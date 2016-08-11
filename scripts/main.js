@@ -38,13 +38,21 @@ var presentMovieDetails = function(imdbId){
 
 };
 
+var cleanInputField = function () {
+
+    requirejs(['search/views/searchView', 'movieDetails/views/movieDetailsView'], function (SearchView, MovieDetailsView) {
+        $('.movie').val('');
+        var searchView = new SearchView({onSearchCallback: onSearchHandler});
+    })
+}
+
 
 var presentResultsTable = function(movieSearchCollection){
     requirejs(['results/views/resultsView' ,  ], function (ResultsView) {
         var resultsModel = new Backbone.Model();
         resultsModel.set('moviesSearchCollection', movieSearchCollection);
 
-        resultsView = new ResultsView({model: resultsModel, onChosenMovieCallback: presentMovieDetails});
+        resultsView = new ResultsView({model: resultsModel, onChosenMovieCallback: presentMovieDetails , onNewSearchCallback: cleanInputField});
     })
 };
 

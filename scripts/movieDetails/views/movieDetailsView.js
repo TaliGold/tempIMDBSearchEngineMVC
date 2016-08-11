@@ -14,7 +14,7 @@ define(['text!../templates/movieDetailsPageElements.html'], function (template )
             var movieModel = this.model;
             //Add movie info to the right properties
             if (movieModel.get('Poster') === "N/A") {
-                $('.movie-poster').html('<img src="../images/noImageAvaliable.jpg"/>');
+                $('.movie-poster').html('<img src="images/noImageAvaliable.jpg"/>');
             }
             else {
                 $('.movie-poster').html('<img src="' + movieModel.get('Poster') + '" />');
@@ -35,11 +35,12 @@ define(['text!../templates/movieDetailsPageElements.html'], function (template )
             $('.runtime').text(movieModel.get('Runtime'));
 
             $('.button-place').html('<button class="go-back-button hvr-icon-back" >Back</button>');
+            $('.movie-name').html(movieModel.get(('Title')));
             
         },
 
         events: {
-            "click .go-back-button":          "back",
+            "click .go-back-button":          "back"
         },
 
         back: function(){

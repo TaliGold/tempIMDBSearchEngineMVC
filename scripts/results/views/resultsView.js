@@ -6,6 +6,7 @@ define(['text!../templates/resultsPageElements.html', './resultsOddRowView' , '.
         
         initialize : function (obj) {
             this.onChosenMovieCallback =  obj.onChosenMovieCallback; 
+            this.onNewSearchCallback = obj.onNewSearchCallback;
             this.render();
         },
 
@@ -24,10 +25,13 @@ define(['text!../templates/resultsPageElements.html', './resultsOddRowView' , '.
                 movieView.render();
                 i++;
             })
+
+            $('.button-place').html('<button class="go-back-button hvr-icon-back" >Back</button>');
         },
 
         events: {
             "click .table-of-results-row":          "presentMovieDetails",
+            "click .go-back-button":          "newSearch"
         },
 
         presentMovieDetails: function(event){
@@ -40,6 +44,10 @@ define(['text!../templates/resultsPageElements.html', './resultsOddRowView' , '.
         
         showResultsView : function () {
             $('.table-of-results').show();
-        }
+        },
+
+        newSearch: function(){
+            this.onNewSearchCallback();
+        },
     });
 });
