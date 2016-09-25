@@ -8,7 +8,6 @@ define ->
       @url = @url + @movieName
       return
     parse: (data) ->
-#console.log(data.Search);
       data.Search
       
       
