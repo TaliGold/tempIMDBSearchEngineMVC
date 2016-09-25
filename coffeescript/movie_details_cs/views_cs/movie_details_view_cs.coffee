@@ -1,4 +1,4 @@
-define [ 'text!../templates/movieDetailsPageElements.html' ], (template) ->
+define [ 'text!../templates_cs/movie_details_page_elements_cs.html' ], (template) ->
   Backbone.View.extend
     el: '.table-of-movie-details'
     tagName: 'table'
