@@ -1,8 +1,8 @@
-requirejs.config packages: [ {
+requirejs.config packages:[{
   name: 'text'
   location: '../libs'
   main: 'text'
-} ]
+}]
 resultsView = undefined
 movieDetailsView = undefined
 router = undefined
