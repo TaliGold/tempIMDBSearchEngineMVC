@@ -8,14 +8,14 @@ movieDetailsView = undefined
 router = undefined
 
 onSearchHandler = (searchTerm) ->
-  requirejs [ 'router/viewsRouter' ], (Router) ->
+  requirejs [ 'router_cs/views_router' ], (Router) ->
     addToUrl = 'results/:' + searchTerm
     router.navigate addToUrl, true
     return
   return
 
 onCreateResultsCollection = (searchTerm) ->
-  requirejs [ 'search/models/searchModelAndCollection' ], (MovieSearchCollection) ->
+  requirejs [ 'search_cs/models_cs/search_model_and_collection_cs' ], (MovieSearchCollection) ->
     movieSearchCollection = new MovieSearchCollection([], searchTerm: searchTerm)
     movieSearchCollection.fetch().always ->
       presentResultsView movieSearchCollection
@@ -24,7 +24,7 @@ onCreateResultsCollection = (searchTerm) ->
   return
 
 presentResultsView = (movieSearchCollection) ->
-  requirejs [ 'results/views/resultsView' ], (ResultsView) ->
+  requirejs [ 'results_cs/views_cs/results_view_cs' ], (ResultsView) ->
     resultsModel = new (Backbone.Model)
     resultsModel.set 'moviesSearchCollection', movieSearchCollection
     resultsView = new ResultsView(
@@ -35,7 +35,7 @@ presentResultsView = (movieSearchCollection) ->
   return
 
 routesToMovieDetails = (imdbId) ->
-  requirejs [ 'router/viewsRouter' ], (Router) ->
+  requirejs [ 'router_cs/views_router_cs' ], (Router) ->
     addToUrl = 'details/:' + imdbId
     router.navigate addToUrl, true
     return
@@ -43,8 +43,8 @@ routesToMovieDetails = (imdbId) ->
 
 presentMovieDetails = (imdbId) ->
   requirejs [
-    'movieDetails/models/movieDetailsModel'
-    'movieDetails/views/movieDetailsView'
+    'movie_details_cs/models_cs/movie_details_model_cs'
+    'movie_details/views_cs/movie_details_view_cs'
   ], (MovieDetailsModel, MovieDetailsView) ->
     movieDetailsModel = new MovieDetailsModel(imdbID: imdbId)
     movieDetailsModel.fetch().always ->
@@ -60,8 +60,8 @@ presentMovieDetails = (imdbId) ->
 
 cleanInputField = ->
   requirejs [
-    'search/views/searchView'
-    'movieDetails/views/movieDetailsView'
+    'search_cs/views_cs/search_view_cs'
+    'movie_details_cs/views_cs/movie_details_view_cs'
   ], (SearchView, MovieDetailsView) ->
     $('.movie').val ''
     searchView = new SearchView(onSearchCallback: onSearchHandler)
@@ -69,7 +69,7 @@ cleanInputField = ->
   return
 
 define ->
-  requirejs [ 'router/viewsRouter' ], (Router) ->
+  requirejs [ 'router_cs/views_router_cs' ], (Router) ->
     router = new Router(
       onDefaultCallback: presentInitialSearchScreen
       onResultsCallback: onCreateResultsCollection
@@ -82,8 +82,8 @@ define ->
 
 presentInitialSearchScreen = ->
   requirejs [
-    'search/views/searchView'
-    'movieDetails/views/movieDetailsView'
+    'search_cs/views_cs/search_view_cs'
+    'movie_details_cs/views_cs/movie_details_view_cs'
   ], (SearchView, MovieDetailsView) ->
     searchView = new SearchView(onSearchCallback: onSearchHandler)
     return
@@ -95,8 +95,8 @@ routeWhenBackButton = ->
 
 backToResults = ->
   requirejs [
-    'search/views/searchView'
-    'movieDetails/views/movieDetailsView'
+    'search_cs/views_cs/search_view_cs'
+    'movie_details_cs/views_cs/movie_details_view_cs'
   ], (SearchView, MovieDetailsView) ->
     movieDetailsView.cleanupDetailsView()
     resultsView.showResultsView()
