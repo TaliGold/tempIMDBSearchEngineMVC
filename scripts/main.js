@@ -69,9 +69,6 @@ var cleanInputField = function () {
     })
 }
 
-
-
-
 define(function () {
     requirejs(['router/viewsRouter'], function (Router) {
         router = new Router({

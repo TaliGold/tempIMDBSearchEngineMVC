@@ -34,9 +34,7 @@ define( function(){
 
         backToSearchClick : function () {
             this.onBackToSearchCallback();
-            //
         }
-
     })
 })
  

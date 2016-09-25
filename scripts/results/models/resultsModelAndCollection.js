@@ -22,7 +22,3 @@ movieSearchCollection.fetch()
 
     })
 
-// var MovieListModel = Backbone.Model.extend({});
-// var movieListModel = new MovieListModel();
-//
-// movieListModel.set('movieCollection', movieSearchCollection);
