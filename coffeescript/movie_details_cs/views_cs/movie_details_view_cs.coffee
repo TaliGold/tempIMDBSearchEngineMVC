@@ -1,4 +1,6 @@
-define [ 'text!../templates_cs/movie_details_page_elements_cs.html' ], (template) ->
+template = require '../templates_cs/movie_details_page_elements_cs.html'
+
+MovieDetailsView = ->
   Backbone.View.extend
     el: '.table-of-movie-details'
     tagName: 'table'
@@ -41,3 +43,5 @@ define [ 'text!../templates_cs/movie_details_page_elements_cs.html' ], (template
     showDetailsView: ->
       $('.table-of-movie-details').show()
       return
+
+exports.MovieDetailsView = MovieDetailsView;

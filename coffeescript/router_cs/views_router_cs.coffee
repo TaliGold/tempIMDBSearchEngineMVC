@@ -1,4 +1,4 @@
-define ->
+viewRouterCsExports = ->
   Backbone.Router.extend
     routes:
       '': 'presentMainSearchScreen'
@@ -28,3 +28,5 @@ define ->
     backToSearchClick: ->
       @onBackToSearchCallback()
       return
+      
+exports.viewRouterCsExports = viewRouterCsExports; 

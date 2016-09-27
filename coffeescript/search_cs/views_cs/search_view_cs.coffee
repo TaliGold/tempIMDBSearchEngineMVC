@@ -1,6 +1,6 @@
-class search_views_cs
+template = require '../templates_cs/search_page_elements_cs.html'
 
-  define [ 'text!../templates_cs/search_page_elements_cs.html' ], (template) ->
+SearchView = ->
   ENTER_KEY_CODE = 13
   Backbone.View.extend
     el: '.hold-search-elements'
@@ -23,3 +23,6 @@ class search_views_cs
     render: ->
       @$el.html template
       return
+
+
+exports.SearchView = SearchView; 

@@ -1,4 +1,4 @@
-define ->
+MovieSearchCollection = ->
   MovieModel = Backbone.Model.extend({})
   Backbone.Collection.extend
     model: MovieModel
@@ -10,4 +10,4 @@ define ->
     parse: (data) ->
       data.Search
       
-      
+exports.MovieSearchCollection = MovieSearchCollection; 
