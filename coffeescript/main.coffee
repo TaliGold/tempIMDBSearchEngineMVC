@@ -4,6 +4,12 @@ ResultsView = require './results_cs/views_cs/results_view_cs.coffee'
 MovieDetailsModel = require './movie_details_cs/models_cs/movie_details_model_cs.coffee'
 MovieDetailsView = require './movie_details_cs/views_cs/movie_details_view_cs.coffee'
 SearchView = require './search_cs/views_cs/search_view_cs.coffee'
+require 'jquery'
+require 'sweetalert'
+require 'underscore'
+require 'backbone'
+require '../libs/hover/hover.css'
+require 'font-awesome/css/font-awesome.css'
 
 
 #requirejs.config packages:[{
