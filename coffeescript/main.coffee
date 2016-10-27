@@ -34,6 +34,7 @@ Backbone.history.start()
 
 onSearchHandler = (searchTerm) ->
   addToUrl = 'results/:' + searchTerm
+  console.log("start");
   router.navigate addToUrl, true
   return
 
